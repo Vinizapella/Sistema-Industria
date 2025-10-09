@@ -2,6 +2,8 @@ package org.example;
 
 import org.example.DAO.MaquinaDAO;
 import org.example.Model.Maquina;
+import org.example.DAO.TecnicoDAO;
+import org.example.Model.Tecnico;
 
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -49,7 +51,8 @@ Main {
     private static void roteador(int opcao, Scanner scanner) throws SQLException {
         switch (opcao) {
             case 1 -> cadastrarMaquina(scanner);
-            case 2, 3, 4, 5, 6 -> System.out.println("Funcionalidade ainda não implementada.");
+            case 2 -> cadastrarTecnico(scanner);
+            case 3, 4, 5, 6 -> System.out.println("Funcionalidade ainda não implementada.");
             case 0 -> System.out.println("Saindo do sistema...");
             default -> System.out.println("Opção inválida. Tente novamente.");
         }
@@ -80,5 +83,32 @@ Main {
         maquinaDAO.inserir(novaMaquina);
 
         System.out.println("Máquina cadastrada com sucesso!");
+    }
+
+    private static void cadastrarTecnico(Scanner scanner) throws SQLException{
+        System.out.println("\n--- 2. Cadastrar Técnico ---");
+
+        System.out.print("Nome do técnico: ");
+        String nome = scanner.nextLine();
+
+        System.out.print("Digite sua especialidade (Podendo ser em branco): ");
+        String especialidade = scanner.nextLine();
+
+        if (nome.trim().isEmpty()) {
+            System.out.println("Erro: Nome é obrigatório.");
+            return;
+        }
+
+        if (TecnicoDAO.existeTecnico(nome, especialidade)) {
+            System.out.println("Erro: Já existe uma tecnico com este nome e esta especialidade cadastrado.");
+            return;
+        }
+
+        Tecnico novoTecnico = new Tecnico(nome, especialidade);
+
+        TecnicoDAO.inserir(novoTecnico);
+
+        System.out.println("Tecnico cadastrado com sucesso!");
+
     }
 }
