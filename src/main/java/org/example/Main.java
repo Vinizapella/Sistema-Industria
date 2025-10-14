@@ -105,7 +105,7 @@ Main {
             return;
         }
 
-        Tecnico novoTecnico = new Tecnico(nome, especialidade);
+        Tecnico novoTecnico = new Tecnico(id, nome, especialidade);
 
         TecnicoDAO.inserir(novoTecnico);
 

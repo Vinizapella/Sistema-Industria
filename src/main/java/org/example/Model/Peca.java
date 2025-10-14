@@ -1,10 +1,10 @@
 package org.example.Model;
 
-public class Pecas {
+public class Peca {
     private String nome;
     private double estoque;
 
-    public Pecas(String nome, double estoque) {
+    public Peca(String nome, double estoque) {
         this.nome = nome;
         this.estoque = estoque;
     }
