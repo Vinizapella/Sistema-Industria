@@ -5,6 +5,7 @@ public class Tecnico {
     private String nome;
     private String especialidade;
 
+    // Construtor para inserir (sem id)
     public Tecnico(String nome, String especialidade) {
         this.nome = nome;
         this.especialidade = especialidade;
@@ -14,6 +15,15 @@ public class Tecnico {
         this.id = id;
         this.nome = nome;
         this.especialidade = especialidade;
+    }
+
+    @Override
+    public String toString() {
+        return "Tecnico [ID=" + id + ", Nome=" + nome + ", Especialidade=" + especialidade + "]";
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getNome() {
@@ -30,9 +40,5 @@ public class Tecnico {
 
     public void setEspecialidade(String especialidade) {
         this.especialidade = especialidade;
-    }
-
-    public int getId() {
-        return id;
     }
 }

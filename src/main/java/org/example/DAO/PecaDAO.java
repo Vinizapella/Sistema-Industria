@@ -52,7 +52,7 @@ public class PecaDAO {
         return pecas;
     }
 
-    public void atualziarEstoque(int idPeca, double novoEstoque) throws SQLException{
+    public void atualizarEstoque(int idPeca, double novoEstoque) throws SQLException{
         String sql = "UPDATE Peca SET estoque = ? WHERE id = ?";
         try (Connection conn = Conexao.conectar();
         PreparedStatement pstmt = conn.prepareStatement(sql)){
