@@ -1,10 +1,17 @@
 package org.example.Model;
 
 public class Tecnico {
+    private int id;
     private String nome;
     private String especialidade;
 
+    public Tecnico(String nome, String especialidade) {
+        this.nome = nome;
+        this.especialidade = especialidade;
+    }
+
     public Tecnico(int id, String nome, String especialidade) {
+        this.id = id;
         this.nome = nome;
         this.especialidade = especialidade;
     }
@@ -23,5 +30,9 @@ public class Tecnico {
 
     public void setEspecialidade(String especialidade) {
         this.especialidade = especialidade;
+    }
+
+    public int getId() {
+        return id;
     }
 }

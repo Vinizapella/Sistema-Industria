@@ -49,7 +49,7 @@ public class TecnicoDAO {
                 int id = rs.getInt("id");
                 String nome = rs.getString("nome");
                 String especialidade = rs.getString("especialidade");
-                tecnicos.add(new Tecnico(id, nome, especialidade));
+                tecnicos.add(new Tecnico(nome, especialidade));
             }
         }
         return tecnicos;

@@ -46,7 +46,7 @@ public class PecaDAO {
                 int id = rs.getInt("id");
                 String nome = rs.getNString("nome");
                 double estoque = rs.getDouble("estoque");
-                pecas.add(new Peca(id, nome, estoque));
+                pecas.add(new Peca(nome, estoque));
             }
         }
         return pecas;
