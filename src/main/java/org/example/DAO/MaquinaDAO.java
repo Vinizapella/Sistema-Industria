@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MaquinaDAO {
 
@@ -35,6 +37,36 @@ public class MaquinaDAO {
             pstmt.setString(1, maquina.getNome());
             pstmt.setString(2, maquina.getSetor());
             pstmt.setString(3, maquina.getStatus());
+            pstmt.executeUpdate();
+        }
+    }
+
+    public List<Maquina> listarOperacionais() throws SQLException {
+        List<Maquina> maquinas = new ArrayList<>();
+        String sql = "SELECT * FROM Maquina WHERE status = 'OPERACIONAL'";
+
+        try (Connection conn = Conexao.conectar();
+             PreparedStatement pstmt = conn.prepareStatement(sql);
+             ResultSet rs = pstmt.executeQuery()) {
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String nome = rs.getString("nome");
+                String setor = rs.getString("setor");
+                String status = rs.getString("status");
+                maquinas.add(new Maquina(id, nome, setor, status));
+            }
+        }
+        return maquinas;
+    }
+
+    public void atualizarStatus(int idMaquina, String novoStatus) throws SQLException {
+        String sql = "UPDATE Maquina SET status = ? WHERE id = ?";
+        try (Connection conn = Conexao.conectar();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, novoStatus);
+            pstmt.setInt(2, idMaquina);
             pstmt.executeUpdate();
         }
     }
