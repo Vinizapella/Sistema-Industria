@@ -52,7 +52,7 @@ Main {
         switch (opcao) {
             case 1 -> cadastrarMaquina(scanner);
             case 2 -> cadastrarTecnico(scanner);
-            case 3 -> cadastrarPecas(scanner);
+            //case 3 -> cadastrarPecas(scanner);
             case 4, 5, 6 -> System.out.println("Funcionalidade ainda não implementada.");
             case 0 -> System.out.println("Saindo do sistema...");
             default -> System.out.println("Opção inválida. Tente novamente.");

@@ -4,7 +4,7 @@ public class Peca {
     private String nome;
     private double estoque;
 
-    public Peca(String nome, double estoque) {
+    public Peca(int id, String nome, double estoque) {
         this.nome = nome;
         this.estoque = estoque;
     }
