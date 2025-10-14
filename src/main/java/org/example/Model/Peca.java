@@ -16,6 +16,19 @@ public class Peca {
         this.estoque = estoque;
     }
 
+    @Override
+    public String toString() {
+        return "Peca [ID=" + id + ", Nome=" + nome + ", Estoque=" + estoque + "]";
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -30,9 +43,5 @@ public class Peca {
 
     public void setEstoque(double estoque) {
         this.estoque = estoque;
-    }
-
-    public int getId() {
-        return id;
     }
 }

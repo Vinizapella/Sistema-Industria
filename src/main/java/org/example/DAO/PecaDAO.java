@@ -36,17 +36,19 @@ public class PecaDAO {
         }
     }
 
-    public List<Peca> listarTodas() throws SQLException{
+    public List<Peca> listarTodas() throws SQLException {
         List<Peca> pecas = new ArrayList<>();
         String sql = "SELECT * FROM Peca";
         try (Connection conn = Conexao.conectar();
-        PreparedStatement pstmt = conn.prepareStatement(sql);
-        ResultSet rs = pstmt.executeQuery()){
-            while (rs.next()){
+             PreparedStatement pstmt = conn.prepareStatement(sql);
+             ResultSet rs = pstmt.executeQuery()) {
+
+            while (rs.next()) {
                 int id = rs.getInt("id");
-                String nome = rs.getNString("nome");
+                String nome = rs.getString("nome");
                 double estoque = rs.getDouble("estoque");
-                pecas.add(new Peca(nome, estoque));
+
+                pecas.add(new Peca(id, nome, estoque));
             }
         }
         return pecas;
