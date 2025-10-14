@@ -54,7 +54,7 @@ public class OrdemManutencaoDAO {
     }
 
     public void atualizarStatus(int idOrdem, String novoStatus) throws SQLException{
-        String sql = "UPDATE OrdemManuntecao SET status = ? WHERE id = ?";
+        String sql = "UPDATE OrdemManutecao SET status = ? WHERE id = ?";
         try (Connection conn = Conexao.conectar();
         PreparedStatement pstmt = conn.prepareStatement(sql)){
             pstmt.setString(1, novoStatus);
